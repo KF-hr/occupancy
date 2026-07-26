@@ -1,0 +1,932 @@
+
+{
+    "version": "1.0.0",
+    "queries": [
+        {
+            "Query": {
+                "Commands": [
+                    {
+                        "SemanticQueryDataShapeCommand": {
+                            "Query": {
+                                "Version": 2,
+                                "From": [
+                                    {
+                                        "Name": "t",
+                                        "Entity": "Tap Count - Daily",
+                                        "Type": 0
+                                    },
+                                    {
+                                        "Name": "s",
+                                        "Entity": "Stations",
+                                        "Type": 0
+                                    },
+                                    {
+                                        "Name": "d",
+                                        "Entity": "Dates",
+                                        "Type": 0
+                                    },
+                                    {
+                                        "Name": "l",
+                                        "Entity": "LocalDateTable_0111e59e-f004-452c-9bfa-2c0171e22706",
+                                        "Type": 0
+                                    },
+                                    {
+                                        "Name": "subquery",
+                                        "Expression": {
+                                            "Subquery": {
+                                                "Query": {
+                                                    "Version": 2,
+                                                    "From": [
+                                                        {
+                                                            "Name": "s1",
+                                                            "Entity": "Stations",
+                                                            "Type": 0
+                                                        },
+                                                        {
+                                                            "Name": "t1",
+                                                            "Entity": "Tap Count - Daily",
+                                                            "Type": 0
+                                                        },
+                                                        {
+                                                            "Name": "d1",
+                                                            "Entity": "Dates",
+                                                            "Type": 0
+                                                        },
+                                                        {
+                                                            "Name": "e1",
+                                                            "Entity": "Entry / Exit",
+                                                            "Type": 0
+                                                        },
+                                                        {
+                                                            "Name": "l2",
+                                                            "Entity": "LU / Other TfL / NR",
+                                                            "Type": 0
+                                                        }
+                                                    ],
+                                                    "Select": [
+                                                        {
+                                                            "Column": {
+                                                                "Expression": {
+                                                                    "SourceRef": {
+                                                                        "Source": "s1"
+                                                                    }
+                                                                },
+                                                                "Property": "Station"
+                                                            },
+                                                            "Name": "field"
+                                                        }
+                                                    ],
+                                                    "Where": [
+                                                        {
+                                                            "Condition": {
+                                                                "Comparison": {
+                                                                    "ComparisonKind": 0,
+                                                                    "Left": {
+                                                                        "Column": {
+                                                                            "Expression": {
+                                                                                "SourceRef": {
+                                                                                    "Source": "s1"
+                                                                                }
+                                                                            },
+                                                                            "Property": "Station"
+                                                                        }
+                                                                    },
+                                                                    "Right": {
+                                                                        "AnyValue": {
+                                                                            "DefaultValueOverridesAncestors": true
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            "Condition": {
+                                                                "Comparison": {
+                                                                    "ComparisonKind": 0,
+                                                                    "Left": {
+                                                                        "HierarchyLevel": {
+                                                                            "Expression": {
+                                                                                "Hierarchy": {
+                                                                                    "Expression": {
+                                                                                        "PropertyVariationSource": {
+                                                                                            "Expression": {
+                                                                                                "SourceRef": {
+                                                                                                    "Source": "d1"
+                                                                                                }
+                                                                                            },
+                                                                                            "Name": "Variation",
+                                                                                            "Property": "Date"
+                                                                                        }
+                                                                                    },
+                                                                                    "Hierarchy": "Date Hierarchy"
+                                                                                }
+                                                                            },
+                                                                            "Level": "Year"
+                                                                        }
+                                                                    },
+                                                                    "Right": {
+                                                                        "AnyValue": {
+                                                                            "DefaultValueOverridesAncestors": true
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            "Condition": {
+                                                                "Comparison": {
+                                                                    "ComparisonKind": 0,
+                                                                    "Left": {
+                                                                        "HierarchyLevel": {
+                                                                            "Expression": {
+                                                                                "Hierarchy": {
+                                                                                    "Expression": {
+                                                                                        "PropertyVariationSource": {
+                                                                                            "Expression": {
+                                                                                                "SourceRef": {
+                                                                                                    "Source": "d1"
+                                                                                                }
+                                                                                            },
+                                                                                            "Name": "Variation",
+                                                                                            "Property": "Date"
+                                                                                        }
+                                                                                    },
+                                                                                    "Hierarchy": "Date Hierarchy"
+                                                                                }
+                                                                            },
+                                                                            "Level": "Month"
+                                                                        }
+                                                                    },
+                                                                    "Right": {
+                                                                        "AnyValue": {
+                                                                            "DefaultValueOverridesAncestors": true
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            "Condition": {
+                                                                "Comparison": {
+                                                                    "ComparisonKind": 0,
+                                                                    "Left": {
+                                                                        "HierarchyLevel": {
+                                                                            "Expression": {
+                                                                                "Hierarchy": {
+                                                                                    "Expression": {
+                                                                                        "PropertyVariationSource": {
+                                                                                            "Expression": {
+                                                                                                "SourceRef": {
+                                                                                                    "Source": "d1"
+                                                                                                }
+                                                                                            },
+                                                                                            "Name": "Variation",
+                                                                                            "Property": "Date"
+                                                                                        }
+                                                                                    },
+                                                                                    "Hierarchy": "Date Hierarchy"
+                                                                                }
+                                                                            },
+                                                                            "Level": "Day"
+                                                                        }
+                                                                    },
+                                                                    "Right": {
+                                                                        "AnyValue": {
+                                                                            "DefaultValueOverridesAncestors": true
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            "Condition": {
+                                                                "And": {
+                                                                    "Left": {
+                                                                        "Comparison": {
+                                                                            "ComparisonKind": 2,
+                                                                            "Left": {
+                                                                                "Column": {
+                                                                                    "Expression": {
+                                                                                        "SourceRef": {
+                                                                                            "Source": "d1"
+                                                                                        }
+                                                                                    },
+                                                                                    "Property": "Date"
+                                                                                }
+                                                                            },
+                                                                            "Right": {
+                                                                                "Literal": {
+                                                                                    "Value": "datetime'2025-01-01T00:00:00'"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    },
+                                                                    "Right": {
+                                                                        "Comparison": {
+                                                                            "ComparisonKind": 3,
+                                                                            "Left": {
+                                                                                "Column": {
+                                                                                    "Expression": {
+                                                                                        "SourceRef": {
+                                                                                            "Source": "d1"
+                                                                                        }
+                                                                                    },
+                                                                                    "Property": "Date"
+                                                                                }
+                                                                            },
+                                                                            "Right": {
+                                                                                "Literal": {
+                                                                                    "Value": "datetime'2026-01-01T00:00:00'"
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            "Condition": {
+                                                                "In": {
+                                                                    "Expressions": [
+                                                                        {
+                                                                            "Column": {
+                                                                                "Expression": {
+                                                                                    "SourceRef": {
+                                                                                        "Source": "s1"
+                                                                                    }
+                                                                                },
+                                                                                "Property": "Station"
+                                                                            }
+                                                                        }
+                                                                    ],
+                                                                    "Values": [
+                                                                        [
+                                                                            {
+                                                                                "Literal": {
+                                                                                    "Value": "'Abbey Road DLR'"
+                                                                                }
+                                                                            }
+                                                                        ],
+                                                                        [
+                                                                            {
+                                                                                "Literal": {
+                                                                                    "Value": "'Abbey Wood'"
+                                                                                }
+                                                                            }
+                                                                        ],
+                                                                        [
+                                                                            {
+                                                                                "Literal": {
+                                                                                    "Value": "'Acton Central'"
+                                                                                }
+                                                                            }
+                                                                        ],
+                                                                        [
+                                                                            {
+                                                                                "Literal": {
+                                                                                    "Value": "'Acton Main Line'"
+                                                                                }
+                                                                            }
+                                                                        ],
+                                                                        [
+                                                                            {
+                                                                                "Literal": {
+                                                                                    "Value": "'Acton Town'"
+                                                                                }
+                                                                            }
+                                                                        ],
+                                                                        [
+                                                                            {
+                                                                                "Literal": {
+                                                                                    "Value": "'Aldgate'"
+                                                                                }
+                                                                            }
+                                                                        ]
+                                                                    ]
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            "Condition": {
+                                                                "In": {
+                                                                    "Expressions": [
+                                                                        {
+                                                                            "Column": {
+                                                                                "Expression": {
+                                                                                    "SourceRef": {
+                                                                                        "Source": "e1"
+                                                                                    }
+                                                                                },
+                                                                                "Property": "Entry / Exit"
+                                                                            }
+                                                                        }
+                                                                    ],
+                                                                    "Values": [
+                                                                        [
+                                                                            {
+                                                                                "Literal": {
+                                                                                    "Value": "'Entry'"
+                                                                                }
+                                                                            }
+                                                                        ]
+                                                                    ]
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            "Condition": {
+                                                                "Not": {
+                                                                    "Expression": {
+                                                                        "In": {
+                                                                            "Expressions": [
+                                                                                {
+                                                                                    "Column": {
+                                                                                        "Expression": {
+                                                                                            "SourceRef": {
+                                                                                                "Source": "s1"
+                                                                                            }
+                                                                                        },
+                                                                                        "Property": "Station"
+                                                                                    }
+                                                                                }
+                                                                            ],
+                                                                            "Values": [
+                                                                                [
+                                                                                    {
+                                                                                        "Literal": {
+                                                                                            "Value": "null"
+                                                                                        }
+                                                                                    }
+                                                                                ]
+                                                                            ]
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            "Condition": {
+                                                                "In": {
+                                                                    "Expressions": [
+                                                                        {
+                                                                            "Column": {
+                                                                                "Expression": {
+                                                                                    "SourceRef": {
+                                                                                        "Source": "l2"
+                                                                                    }
+                                                                                },
+                                                                                "Property": "LU / Other TfL / NR"
+                                                                            }
+                                                                        }
+                                                                    ],
+                                                                    "Values": [
+                                                                        [
+                                                                            {
+                                                                                "Literal": {
+                                                                                    "Value": "'LU'"
+                                                                                }
+                                                                            }
+                                                                        ],
+                                                                        [
+                                                                            {
+                                                                                "Literal": {
+                                                                                    "Value": "'Other TfL'"
+                                                                                }
+                                                                            }
+                                                                        ]
+                                                                    ]
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            "Condition": {
+                                                                "Comparison": {
+                                                                    "ComparisonKind": 1,
+                                                                    "Left": {
+                                                                        "Column": {
+                                                                            "Expression": {
+                                                                                "SourceRef": {
+                                                                                    "Source": "d1"
+                                                                                }
+                                                                            },
+                                                                            "Property": "Date"
+                                                                        }
+                                                                    },
+                                                                    "Right": {
+                                                                        "DateSpan": {
+                                                                            "Expression": {
+                                                                                "Literal": {
+                                                                                    "Value": "datetime'2018-12-31T01:00:00'"
+                                                                                }
+                                                                            },
+                                                                            "TimeUnit": 5
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            "Condition": {
+                                                                "In": {
+                                                                    "Expressions": [
+                                                                        {
+                                                                            "Column": {
+                                                                                "Expression": {
+                                                                                    "SourceRef": {
+                                                                                        "Source": "d1"
+                                                                                    }
+                                                                                },
+                                                                                "Property": "Data Complete Flag"
+                                                                            }
+                                                                        }
+                                                                    ],
+                                                                    "Values": [
+                                                                        [
+                                                                            {
+                                                                                "Literal": {
+                                                                                    "Value": "'Y'"
+                                                                                }
+                                                                            }
+                                                                        ]
+                                                                    ]
+                                                                }
+                                                            }
+                                                        }
+                                                    ],
+                                                    "OrderBy": [
+                                                        {
+                                                            "Direction": 2,
+                                                            "Expression": {
+                                                                "Aggregation": {
+                                                                    "Expression": {
+                                                                        "Column": {
+                                                                            "Expression": {
+                                                                                "SourceRef": {
+                                                                                    "Source": "t1"
+                                                                                }
+                                                                            },
+                                                                            "Property": "Tap Count"
+                                                                        }
+                                                                    },
+                                                                    "Function": 0
+                                                                }
+                                                            }
+                                                        }
+                                                    ],
+                                                    "Top": 10
+                                                }
+                                            }
+                                        },
+                                        "Type": 2
+                                    },
+                                    {
+                                        "Name": "e",
+                                        "Entity": "Entry / Exit",
+                                        "Type": 0
+                                    },
+                                    {
+                                        "Name": "l1",
+                                        "Entity": "LU / Other TfL / NR",
+                                        "Type": 0
+                                    }
+                                ],
+                                "Select": [
+                                    {
+                                        "Aggregation": {
+                                            "Expression": {
+                                                "Column": {
+                                                    "Expression": {
+                                                        "SourceRef": {
+                                                            "Source": "t"
+                                                        }
+                                                    },
+                                                    "Property": "Tap Count"
+                                                }
+                                            },
+                                            "Function": 0
+                                        },
+                                        "Name": "Sum(Tap Count - Daily.Tap Count)"
+                                    },
+                                    {
+                                        "Column": {
+                                            "Expression": {
+                                                "SourceRef": {
+                                                    "Source": "s"
+                                                }
+                                            },
+                                            "Property": "Station"
+                                        },
+                                        "Name": "Stations.Station"
+                                    },
+                                    {
+                                        "HierarchyLevel": {
+                                            "Expression": {
+                                                "Hierarchy": {
+                                                    "Expression": {
+                                                        "PropertyVariationSource": {
+                                                            "Expression": {
+                                                                "SourceRef": {
+                                                                    "Source": "d"
+                                                                }
+                                                            },
+                                                            "Name": "Variation",
+                                                            "Property": "Date"
+                                                        }
+                                                    },
+                                                    "Hierarchy": "Date Hierarchy"
+                                                }
+                                            },
+                                            "Level": "Year"
+                                        },
+                                        "Name": "Dates.Travel Date (dd/mm/yyyy).Variation.Date Hierarchy.Year"
+                                    },
+                                    {
+                                        "HierarchyLevel": {
+                                            "Expression": {
+                                                "Hierarchy": {
+                                                    "Expression": {
+                                                        "PropertyVariationSource": {
+                                                            "Expression": {
+                                                                "SourceRef": {
+                                                                    "Source": "d"
+                                                                }
+                                                            },
+                                                            "Name": "Variation",
+                                                            "Property": "Date"
+                                                        }
+                                                    },
+                                                    "Hierarchy": "Date Hierarchy"
+                                                }
+                                            },
+                                            "Level": "Month"
+                                        },
+                                        "Name": "Dates.Travel Date (dd/mm/yyyy).Variation.Date Hierarchy.Month"
+                                    },
+                                    {
+                                        "HierarchyLevel": {
+                                            "Expression": {
+                                                "Hierarchy": {
+                                                    "Expression": {
+                                                        "PropertyVariationSource": {
+                                                            "Expression": {
+                                                                "SourceRef": {
+                                                                    "Source": "d"
+                                                                }
+                                                            },
+                                                            "Name": "Variation",
+                                                            "Property": "Date"
+                                                        }
+                                                    },
+                                                    "Hierarchy": "Date Hierarchy"
+                                                }
+                                            },
+                                            "Level": "Day"
+                                        },
+                                        "Name": "Dates.Travel Date (dd/mm/yyyy).Variation.Date Hierarchy.Day"
+                                    },
+                                    {
+                                        "Aggregation": {
+                                            "Expression": {
+                                                "Column": {
+                                                    "Expression": {
+                                                        "SourceRef": {
+                                                            "Source": "l"
+                                                        }
+                                                    },
+                                                    "Property": "Date"
+                                                }
+                                            },
+                                            "Function": 3
+                                        },
+                                        "Name": "Min(LocalDateTable_0111e59e-f004-452c-9bfa-2c0171e22706.Date)"
+                                    }
+                                ],
+                                "Where": [
+                                    {
+                                        "Condition": {
+                                            "In": {
+                                                "Expressions": [
+                                                    {
+                                                        "Column": {
+                                                            "Expression": {
+                                                                "SourceRef": {
+                                                                    "Source": "s"
+                                                                }
+                                                            },
+                                                            "Property": "Station"
+                                                        }
+                                                    }
+                                                ],
+                                                "Table": {
+                                                    "SourceRef": {
+                                                        "Source": "subquery"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "Condition": {
+                                            "And": {
+                                                "Left": {
+                                                    "Comparison": {
+                                                        "ComparisonKind": 2,
+                                                        "Left": {
+                                                            "Column": {
+                                                                "Expression": {
+                                                                    "SourceRef": {
+                                                                        "Source": "d"
+                                                                    }
+                                                                },
+                                                                "Property": "Date"
+                                                            }
+                                                        },
+                                                        "Right": {
+                                                            "Literal": {
+                                                                "Value": "datetime'2025-01-01T00:00:00'"
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "Right": {
+                                                    "Comparison": {
+                                                        "ComparisonKind": 3,
+                                                        "Left": {
+                                                            "Column": {
+                                                                "Expression": {
+                                                                    "SourceRef": {
+                                                                        "Source": "d"
+                                                                    }
+                                                                },
+                                                                "Property": "Date"
+                                                            }
+                                                        },
+                                                        "Right": {
+                                                            "Literal": {
+                                                                "Value": "datetime'2026-01-01T00:00:00'"
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "Condition": {
+                                            "In": {
+                                                "Expressions": [
+                                                    {
+                                                        "Column": {
+                                                            "Expression": {
+                                                                "SourceRef": {
+                                                                    "Source": "s"
+                                                                }
+                                                            },
+                                                            "Property": "Station"
+                                                        }
+                                                    }
+                                                ],
+                                                "Values": [
+                                                    [
+                                                        {
+                                                            "Literal": {
+                                                                "Value": "'Abbey Road DLR'"
+                                                            }
+                                                        }
+                                                    ],
+                                                    [
+                                                        {
+                                                            "Literal": {
+                                                                "Value": "'Abbey Wood'"
+                                                            }
+                                                        }
+                                                    ],
+                                                    [
+                                                        {
+                                                            "Literal": {
+                                                                "Value": "'Acton Central'"
+                                                            }
+                                                        }
+                                                    ],
+                                                    [
+                                                        {
+                                                            "Literal": {
+                                                                "Value": "'Acton Main Line'"
+                                                            }
+                                                        }
+                                                    ],
+                                                    [
+                                                        {
+                                                            "Literal": {
+                                                                "Value": "'Acton Town'"
+                                                            }
+                                                        }
+                                                    ],
+                                                    [
+                                                        {
+                                                            "Literal": {
+                                                                "Value": "'Aldgate'"
+                                                            }
+                                                        }
+                                                    ]
+                                                ]
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "Condition": {
+                                            "In": {
+                                                "Expressions": [
+                                                    {
+                                                        "Column": {
+                                                            "Expression": {
+                                                                "SourceRef": {
+                                                                    "Source": "e"
+                                                                }
+                                                            },
+                                                            "Property": "Entry / Exit"
+                                                        }
+                                                    }
+                                                ],
+                                                "Values": [
+                                                    [
+                                                        {
+                                                            "Literal": {
+                                                                "Value": "'Entry'"
+                                                            }
+                                                        }
+                                                    ]
+                                                ]
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "Condition": {
+                                            "Not": {
+                                                "Expression": {
+                                                    "In": {
+                                                        "Expressions": [
+                                                            {
+                                                                "Column": {
+                                                                    "Expression": {
+                                                                        "SourceRef": {
+                                                                            "Source": "s"
+                                                                        }
+                                                                    },
+                                                                    "Property": "Station"
+                                                                }
+                                                            }
+                                                        ],
+                                                        "Values": [
+                                                            [
+                                                                {
+                                                                    "Literal": {
+                                                                        "Value": "null"
+                                                                    }
+                                                                }
+                                                            ]
+                                                        ]
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "Condition": {
+                                            "In": {
+                                                "Expressions": [
+                                                    {
+                                                        "Column": {
+                                                            "Expression": {
+                                                                "SourceRef": {
+                                                                    "Source": "l1"
+                                                                }
+                                                            },
+                                                            "Property": "LU / Other TfL / NR"
+                                                        }
+                                                    }
+                                                ],
+                                                "Values": [
+                                                    [
+                                                        {
+                                                            "Literal": {
+                                                                "Value": "'LU'"
+                                                            }
+                                                        }
+                                                    ],
+                                                    [
+                                                        {
+                                                            "Literal": {
+                                                                "Value": "'Other TfL'"
+                                                            }
+                                                        }
+                                                    ]
+                                                ]
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "Condition": {
+                                            "Comparison": {
+                                                "ComparisonKind": 1,
+                                                "Left": {
+                                                    "Column": {
+                                                        "Expression": {
+                                                            "SourceRef": {
+                                                                "Source": "d"
+                                                            }
+                                                        },
+                                                        "Property": "Date"
+                                                    }
+                                                },
+                                                "Right": {
+                                                    "DateSpan": {
+                                                        "Expression": {
+                                                            "Literal": {
+                                                                "Value": "datetime'2018-12-31T01:00:00'"
+                                                            }
+                                                        },
+                                                        "TimeUnit": 5
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "Condition": {
+                                            "In": {
+                                                "Expressions": [
+                                                    {
+                                                        "Column": {
+                                                            "Expression": {
+                                                                "SourceRef": {
+                                                                    "Source": "d"
+                                                                }
+                                                            },
+                                                            "Property": "Data Complete Flag"
+                                                        }
+                                                    }
+                                                ],
+                                                "Values": [
+                                                    [
+                                                        {
+                                                            "Literal": {
+                                                                "Value": "'Y'"
+                                                            }
+                                                        }
+                                                    ]
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "Binding": {
+                                "Primary": {
+                                    "Groupings": [
+                                        {
+                                            "Projections": [
+                                                0,
+                                                2,
+                                                3,
+                                                4,
+                                                5
+                                            ]
+                                        }
+                                    ]
+                                },
+                                "Secondary": {
+                                    "Groupings": [
+                                        {
+                                            "Projections": [
+                                                1
+                                            ],
+                                            "SuppressedProjections": [
+                                                5
+                                            ]
+                                        }
+                                    ]
+                                },
+                                "DataReduction": {
+                                    "DataVolume": 4,
+                                    "Intersection": {
+                                        "BinnedLineSample": {
+                                            "PrimaryScalarKey": 5
+                                        }
+                                    }
+                                },
+                                "SuppressedJoinPredicates": [
+                                    5
+                                ],
+                                "Version": 1
+                            }
+                        }
+                    }
+                ]
+            },
+            "QueryId": ""
+        }
+    ],
+    "cancelQueries": [],
+    "modelId": 1754354
+}
